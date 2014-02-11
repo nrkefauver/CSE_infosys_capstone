@@ -2,9 +2,9 @@
 #############################################
 #	Facebook account finder proof of concept
 #	AUTHOR:		Tracy Parsons
-#	VERSIONS:	0.1: 1/30/2014
-#				1.0: 2/3/2014
-#				2.0: 2/9/2014
+#	VERSIONS:	0.0.1: 1/30/2014
+#				0.1.0: 2/3/2014
+#				0.2.0: 2/9/2014
 #############################################
 
 #
@@ -128,22 +128,22 @@ sub Regexer {
 		if ($class) { $ret = $ret ." YEAR: ". $class .";"; }
 		if ($degree) { $ret = $ret ." DEGREE: ". $degree; }
 		$ret = $ret ."\n";
-		
+
+		if (%jobs) { $ret = $ret ."EMPLOYMENT:\n"; }
 		foreach (keys %jobs) {	# job
-			if ($_) { $ret = $ret ."WORKS FOR: ". $_ .";"; }
-			if ($jobs{$_}) { $ret = $ret ." TITLE: ". $jobs{$_}; }
+			if ($jobs{$_}) { $ret = $ret ."	". $jobs{$_} ." FOR ". $_ .";"; }
+			elsif ($_) { $ret = $ret ."WORKS FOR: ". $_ .";"; }
 			$ret = $ret ."\n";
 		}
 		
 	}
-	else {
-		if ($tmp =~ m/href="https:\/\/facebook.com\/(the.ohio.state.university|osu)/) { $ret = 1; }
-	}
+	#else {
+	#	if ($tmp =~ m/href="https:\/\/facebook.com\/(the.ohio.state.university|osu)/) { $ret = 1; }
+	#}
 	return $ret;
 }
 
 system ("rm CULLEDFILE");
-#system ("rm CATUS");
 
 chomp ($fname = shift @ARGV);
 chomp ($lname = shift @ARGV);
