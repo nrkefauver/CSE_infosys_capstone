@@ -1,0 +1,49 @@
+{
+  "id": "1029882915",
+  "name": "Tracy Parsons",
+  "education": [
+    {
+      "school": {
+        "id": "261554673987062",
+        "name": "Homeschooled"
+      },
+      "year": {
+        "id": "124188824268443",
+        "name": "Homeschooled 2010"
+      },
+      "type": "High School"
+    },
+    {
+      "school": {
+        "id": "119589341391107",
+        "name": "The Ohio State University"
+      },
+      "year": {
+        "id": "143641425651920",
+        "name": "2014"
+      },
+      "concentration": [
+        {
+          "id": "112377098773944",
+          "name": "Computer Engineering"
+        }
+      ],
+      "type": "College"
+    }
+  ],
+  "work": [
+    {
+      "employer": {
+        "id": "118583724831645",
+        "name": "Several people I know"
+      },
+      "position": {
+        "id": "198454680180453",
+        "name": "Landscaper/Grunt"
+      },
+      "description": "I landscape (mow lawns)",
+      "start_date": "0000-00",
+      "end_date": "0000-00"
+    }
+  ]
+}
