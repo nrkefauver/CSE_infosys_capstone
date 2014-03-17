@@ -35,7 +35,7 @@ print Dumper @words;
 foreach my $person (@words){
 	my $fname = $person->{firstname};
 	my $lname = $person->{lastname};
-	system($^X, "fbscraper.pl", $fname,$lname);
+	system($^X, "scraper.pl", $fname,$lname);
 }
 
 

@@ -143,7 +143,7 @@ sub Regexer {
 	return $ret;
 }
 
-system ("rm CULLEDFILE");
+#system ("rm CULLEDFILE");
 
 chomp ($fname = shift @ARGV);
 chomp ($lname = shift @ARGV);
@@ -180,13 +180,13 @@ foreach (keys %matches) {
 		print "Match ". $parity .": $elem\n";
 		# search graph search files
 		if ($name) { system ("wget -q -U Mozilla -O ./profiles/". $elem ."-graph-public https://graph.facebook.com/$elem?fields=education,work"); }
-		$tmp = Regexer (1, "./profiles/". $elem ."-graph-public");
+		$tmp = Regexer (1, "./profiles/". $elem ."-graph-public.f");
 		if ($tmp && $tmp != 1) {
 			print "$tmp\n";
 			$tmp2 = 1;
 		}
 		
-		$tmp = Regexer (1, "./profiles/". $elem ."-graph-friend");
+		$tmp = Regexer (1, "./profiles/". $elem ."-graph-friend.f");
 		if ($tmp && $tmp != 1) {
 			print "$tmp\n";
 			$tmp2 = 1;
@@ -194,19 +194,19 @@ foreach (keys %matches) {
 		
 		#search standard profile pages
 		if ($name) { system ("wget -q -U Mozilla -O ./profiles/". $elem ."-full-public https://www.facebook.com/$elem"); }
-		$tmp = Regexer (0, "./profiles/". $elem ."-full-public");
+		$tmp = Regexer (0, "./profiles/". $elem ."-full-public.f");
 		if ($tmp && $tmp != 1) {
 			print "$tmp\n";
 			$tmp2 = 1;
 		}
 		
-		$tmp = Regexer (0, "./profiles/". $elem ."-full-loggedin");
+		$tmp = Regexer (0, "./profiles/". $elem ."-full-loggedin.f");
 		if ($tmp && $tmp != 1) {
 			print "$tmp\n";
 			$tmp2 = 1;
 		}
 		
-		$tmp = Regexer (0, "./profiles/". $elem ."-full-friend");
+		$tmp = Regexer (0, "./profiles/". $elem ."-full-friend.f");
 		if ($tmp && $tmp != 1) {
 			print "$tmp\n";
 			$tmp2 = 1;
@@ -214,19 +214,19 @@ foreach (keys %matches) {
 		
 		#search profile 'about' pages
 		if ($name) { system ("wget -q -U Mozilla -O ./profiles/". $elem ."-full-info-public https://www.facebook.com/$elem/info"); }
-		$tmp = Regexer (2, "./profiles/". $elem ."-full-info-public");
+		$tmp = Regexer (2, "./profiles/". $elem ."-full-info-public.f");
 		if ($tmp && $tmp != 1) {
 			print "$tmp\n";
 			$tmp2 = 1;
 		}
 		
-		$tmp = Regexer (2, "./profiles/". $elem ."-full-info-loggedin");
+		$tmp = Regexer (2, "./profiles/". $elem ."-full-info-loggedin.f");
 		if ($tmp && $tmp != 1) {
 			print "$tmp\n";
 			$tmp2 = 1;
 		}
 		
-		$tmp = Regexer (2, "./profiles/". $elem ."-full-info-friend");
+		$tmp = Regexer (2, "./profiles/". $elem ."-full-info-friend.f");
 		if ($tmp && $tmp != 1) {
 			print "$tmp\n";
 			$tmp2 = 1;
@@ -235,6 +235,7 @@ foreach (keys %matches) {
 		if (!$tmp2 ) { print "Insufficient information\n\n"; }
 		elsif ($tmp == 1) { print "Ohio State present on page;\n"; }
 		$parity++;
+		system ("rm /profiles/*.f")
 	}
 }
 print "\n";

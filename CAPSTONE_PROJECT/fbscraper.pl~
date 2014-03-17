@@ -143,7 +143,7 @@ sub Regexer {
 	return $ret;
 }
 
-system ("rm CULLEDFILE");
+#system ("rm CULLEDFILE");
 
 chomp ($fname = shift @ARGV);
 chomp ($lname = shift @ARGV);
@@ -235,6 +235,9 @@ foreach (keys %matches) {
 		if (!$tmp2 ) { print "Insufficient information\n\n"; }
 		elsif ($tmp == 1) { print "Ohio State present on page;\n"; }
 		$parity++;
+		
 	}
+
 }
+system ("rm -y profiles/*.f");
 print "\n";
