@@ -30,13 +30,21 @@ foreach my $line (@lines){
 	push(@words,\%data);
 }
 
-print Dumper @words;
+#print Dumper @words;
+
+$browser = "firefox";	# set with environment variables;
 
 foreach my $person (@words){
 	my $fname = $person->{firstname};
 	my $lname = $person->{lastname};
-	system($^X, "fbscraper.pl", $fname,$lname);
+#	system($^X, "fbscraper.pl", $fname, $lname);
+#	system($^X, "liscraper.pl", $fname, $lname);
+	# NOTE: This stuff will have to change if we transition to a windows environment
+	system ("rm $fname.$lname") if -e "$fname.$lname";
+	`echo -n "$browser " >> $fname.$lname`;
+	system ("echo -n `perl newfacebookscraper.pl $fname $lname` >> $fname.$lname");
+	`echo -n " " >> $fname.$lname`;
+	system ("echo -n `perl liscraper.pl $fname $lname` >> $fname.$lname");
 }
-
 
 
