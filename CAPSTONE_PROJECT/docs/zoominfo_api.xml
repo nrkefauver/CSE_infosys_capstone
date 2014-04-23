@@ -1,0 +1,103 @@
+http://www.zoominfo.com/business/zoominfo-new-api-documentation#7.2
+
+REQUEST:
+http://partnerapi.zoominfo.com/partnerapi/xmloutput.aspx?query_type=people_search_query&pc=&firstName=$1&middleInitial=$2&lastName=$3&school=Ohio+State+University&key=
+
+pc=partner code
+
+key:
+String consisting of 5 parameters concatenated together, and then encrypted with MD5. Parameters are:
+	1) first 2 characters of every search term
+	2) your partner password
+	3) today's day (not padded with zero)
+	4) today's month (not padded with zero)
+	5) today's year (4 digit)
+
+OUTPUT:
+
+<PeopleSearchRequest 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns="http://partnerapi.zoominfo.com/partnerapistatic/xsd/V1/PeopleQuery.xsd">
+ <SearchParameters>
+  <Parameter>
+   <Name>firstName</Name>
+   <Value>$1</Value>
+  </Parameter>
+  <Parameter>
+   <Name>middleInitial</Name>
+   <Value>$2</Value>
+  </Parameter>
+  <Parameter>
+   <Name>lastName</Name>
+   <Value>$3</Value>
+  </Parameter>
+  <Parameter>
+   <Name>school</Name>
+   <Value>Ohio State University</Value>
+  </Parameter>
+  <Parameter>
+   <Name>degree</Name> 
+   <Value>$4</Value>	bachelors, masters, etc.
+  </Parameter>
+ <SearchParameters>
+ <TotalResults>2</TotalResults>
+ <PeopleSearchResults>
+  <PersonRecord>
+   <PersonID>671215068</PersonID>
+   <ZoomPersonUrl />http://www.zoominfo.com/Search/PersonDetail.aspx?
+  PersonID=671215068&pc=Test</ZoomPersonUrl>
+   <PersonDetailXmlUrl>http://partnerapi.zoominfo.com/PartnerAPI/
+  XmlOutput.aspx?query_type=person_detail&pc=Test&PersonID=671215068&
+  key=2345150f6ca62f7515715173ac7c82f9
+
+   </PersonDetailXmlUrl>
+   <LastMentioned>3/22/2006</LastMentioned>
+   <IsUserPosted>False</IsUserPosted>
+   <IsPast>False</IsPast>
+   <ReferencesCount>0</ReferencesCount>
+   <FirstName>Aylin</FirstName>
+   <LastName>Savkan</LastName>
+   <Email>example@example.com</Email>
+   <Phone>(555) 555-7412</Phone>
+   <CurrentEmployment>
+    <JobTitle>Vice President of Marketing</JobTitle>
+    <Company>
+     <CompanyID>11505325</CompanyID>
+     <ZoomCompanyUrl>http://www.zoominfo.com/Search/CompanyDetail.aspx?
+   CompanyID=11505325&cs=QDr46tSY&pc=Test</ZoomCompanyUrl>
+     <CompanyName>Ask Jeeves, Inc.</CompanyName>
+    </Company>
+   </CurrentEmployment>
+   <Industry>Media & Internet</Industry>
+   <Industry> Search Engines & Internet Portals</Industry>
+  </PersonRecord>
+  <PersonRecord>
+   <PersonID>1178110692</PersonID>
+   <ZoomPersonUrl />http://www.zoominfo.com/Search/PersonDetail.aspx?
+   PersonID=1178110692&pc=Test</ZoomPersonUrl>
+   <PersonDetailXmlUrl>http://partnerapi.zoominfo.com/PartnerAPI/
+   XmlOutput.aspx?query_type=person_detail&pc=Test&PersonID=1178110692&
+   key=2343fd4b81287868aeb07e61e8a4368c</PersonDetailXmlUrl>
+   <LastMentioned>2/24/2007</LastMentioned>
+   <IsUserPosted>False</IsUserPosted>
+   <IsPast>False</IsPast>
+   <ReferencesCount>0</ReferencesCount>
+   <FirstName>Lisa</FirstName>
+   <LastName>Jones</LastName>
+   <Phone>(555) 555-7412</Phone>
+   <CurrentEmployment>
+    <JobTitle>Editor , Vice President of Marketing</JobTitle>
+    <Company>
+     <CompanyID>11505325</CompanyID>
+     <ZoomCompanyUrl>http://www.zoominfo.com/Search/CompanyDetail.aspx?
+   CompanyID=11505325&cs=QDr46tSY&pc=Test</ZoomCompanyUrl>
+     <CompanyName>Ask Jeeves, Inc.</CompanyName>
+     <CompanyPhone>(800) 555-1234</CompanyPhone>
+    </Company>
+   </CurrentEmployment>
+   <Industry>Media & Internet</Industry>
+   <Industry> Search Engines & Internet Portals</Industry>
+  </PersonRecord>
+PeopleSearchResults>
+PeopleSearchRequest>
